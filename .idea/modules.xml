@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ByteShortIntLong/ByteShortIntLong.iml" filepath="$PROJECT_DIR$/ByteShortIntLong/ByteShortIntLong.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CharBoolean/CharBoolean.iml" filepath="$PROJECT_DIR$/CharBoolean/CharBoolean.iml" />
       <module fileurl="file://$PROJECT_DIR$/FirstSteps/FirstSteps.iml" filepath="$PROJECT_DIR$/FirstSteps/FirstSteps.iml" />
       <module fileurl="file://$PROJECT_DIR$/FloatDouble/FloatDouble.iml" filepath="$PROJECT_DIR$/FloatDouble/FloatDouble.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-programming-masterclass.iml" filepath="$PROJECT_DIR$/.idea/java-programming-masterclass.iml" />
