@@ -19,7 +19,48 @@ public class Main {
 
         assignmentVsEquals();
 
+        ternary();
 
+        challenge();
+
+        operatorDocumentation();
+
+
+    }
+
+    private static void operatorDocumentation() {
+        System.out.println("list of operators: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/opsummary.html");
+
+        System.out.println("How java handles operations based on the operators\n" +
+                "Operator precedence: http://www.cs.bilkent.edu.tr/~guvenir/courses/CS101/op_precedence.html");
+    }
+
+    private static void challenge() {
+        System.out.println("Operator challenge.\n" +
+                "====================");
+        double firstDouble = 20.00;
+        double secondDouble = 80.00;
+        double result = (firstDouble+secondDouble)*100;
+        System.out.println("(20+80)*100="+result);
+        double remainderDivideBy40 = result%40.00;
+        System.out.println("((20+80)*100)%40.00)="+remainderDivideBy40);
+        boolean isZero= remainderDivideBy40==0? true : false;
+        if(isZero){
+            System.out.println("remainder is zero");
+        }
+        else {
+            System.out.println("there's a remainder");
+        }
+    }
+
+    private static void ternary() {
+        boolean isCar=false;
+        boolean wasCar = isCar ? true : false;
+
+        System.out.println("\nternary operator is short cut for if then else.");
+        if(wasCar){
+            System.out.println("was car");
+        }
     }
 
     private static void assignmentVsEquals() {
