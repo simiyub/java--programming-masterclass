@@ -11,13 +11,16 @@ public class Main {
         displayHighScorePosition("player 900",calculateHighScorePosition(900));
         displayHighScorePosition("player 400",calculateHighScorePosition(400));
         displayHighScorePosition("player 50",calculateHighScorePosition(50));
+        double number = 5.0;
+        int one = 1;
+
 
 
 
     }
 
     private static int calculateHighScorePosition(int score) {
-        return score > 1000? 1 : 500< score && score <=1000 ? 2 : 100< score && score <= 500? 3 : 4;
+        return score >= 1000? 1 : score >=500 ? 2 : score>= 100? 3 : 4;
     }
 
     private static void displayHighScorePosition(String name, int position) {
