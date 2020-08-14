@@ -11,7 +11,40 @@ public class Main {
         feet = 0;
         printImperialToMetricConversion(feet, inches, feetAndInchesToCentimeters(inches));
 
+        System.out.println(getDurationString(3904));
+        System.out.println(getDurationString(3904));
+
     }
+
+    private static String getDurationString(int seconds) {
+        String duration;
+        if(seconds>=0){
+            duration=getDurationString((int)seconds/60, (int)seconds%60);
+        }
+        else{
+            duration="Invalid value";
+        }
+        return duration;
+    }
+
+    private static String getDurationString(int minutes, int seconds) {
+        String duration;
+        if(minutes>=0 && seconds>=0){
+            int secondsToMinutes = seconds/60;
+            int secondsRemaining = seconds%60;
+            int totalMinutes=minutes+secondsToMinutes;
+            int hours = totalMinutes/60;
+            duration = hours>=10 ? " "+hours+"h" : " 0"+hours+"h";
+            int minutesRemaining=totalMinutes%60;
+            duration += minutesRemaining>=10 ? " "+minutesRemaining+"m" : " 0"+minutesRemaining+"m";
+            duration += secondsRemaining>=10 ? " "+secondsRemaining+"s" : " 0"+secondsRemaining+"s";
+        }
+        else{
+            duration="Invalid value";
+        }
+        return duration;
+    }
+
 
     private static double feetAndInchesToCentimeters(int inches) {
         double centimeters = -1;
