@@ -1,10 +1,19 @@
 public class App {
     public static void main(String[] args) {
-        Switch switchlesson = new Switch();
-        switchlesson.switchLesson();
-        switchlesson.challengeChar();
-        switchlesson.switchString();
-        switchlesson.challengeString(4);
-        switchlesson.challengeStringBonus(6);
+        Switch switchLesson = new Switch();
+        switchLesson.switchLesson();
+        switchLesson.challengeChar();
+        switchLesson.switchString();
+        switchLesson.challengeString(4);
+        switchLesson.challengeStringBonus(6);
+
+        For.loopWithoutFor();
+        For.loopWithFor();
+        For.miniChallenge1();
+        For.miniChallenge2();
     }
+
+
+
+
 }
