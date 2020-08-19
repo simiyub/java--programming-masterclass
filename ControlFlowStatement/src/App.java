@@ -11,6 +11,7 @@ public class App {
         For.loopWithFor();
         For.miniChallenge1();
         For.miniChallenge2();
+        For.sum3And5Challenge();
     }
 
 

@@ -56,4 +56,23 @@ public class For {
         System.out.println("simple interest for 10000 at 4% = "+interest4);
         System.out.println("simple interest for 10000 at 5% = "+interest5);
     }
+
+    public static void sum3And5Challenge() {
+        int count = 0;
+        int sum=0;
+        for(int i=1;i<=1000;i++){
+
+            if(i%3==0 && i%5==0){
+                count +=1;
+                sum +=i;
+                System.out.println(i+" is divisible by 3 and 5");
+                System.out.println("Sum of first five numbers divisible by 3 and 5 is now:"+sum );
+
+            }
+            if (count==5){
+                break;
+            }
+        }
+        System.out.println("Sum of first "+count+" numbers divisible by 3 and 5 is:"+sum);
+    }
 }
