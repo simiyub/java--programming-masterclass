@@ -31,11 +31,29 @@ public class While {
             count+=1;
 
             if(count==5){
-                System.out.println("total of first five even numbers between "+start+" and "+finishNumber+" is:"+sum);
-
                 break;
             }
 
         }
+        System.out.println("total of first five even numbers between "+start+" and "+finishNumber+" is:"+sum);
+    }
+
+    public static void digitSumChallenge(int number) {
+        /**
+         * Adds the digits in a number if >=10
+         * **/
+        int sum=0;
+        if(number>=10){
+            do{
+
+                sum+=number%10;
+                number=number/10;
+            }while(number%10!=0);
+        }
+        else{
+            sum=-1;
+        }
+        System.out.println("sum="+sum);
+
     }
 }

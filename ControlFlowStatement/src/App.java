@@ -15,6 +15,7 @@ public class App {
 
         While.isEvenChallenge(10);
         While.example1();
+        While.digitSumChallenge(-11);
     }
 
 
