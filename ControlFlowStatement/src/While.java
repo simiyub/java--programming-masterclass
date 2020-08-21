@@ -5,7 +5,7 @@ public class While {
             even=true;
             System.out.println(number+" is even.");
         }
-        return false;
+        return even;
 
     }
 
@@ -19,17 +19,22 @@ public class While {
 
         while(number<=finishNumber){
             boolean even=isEvenChallenge(number);
-            number+=1;
+
             if(!even){
+                number+=1;
                 continue;
             }
 
             sum+=number;
+
+            number+=1;
             count+=1;
+
             if(count==5){
+                System.out.println("total of first five even numbers between "+start+" and "+finishNumber+" is:"+sum);
+
                 break;
             }
-            System.out.println("total of first five even numbers between "+start+" and "+finishNumber+" is:"+sum);
 
         }
     }
