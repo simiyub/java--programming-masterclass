@@ -12,6 +12,9 @@ public class App {
         For.miniChallenge1();
         For.miniChallenge2();
         For.sum3And5Challenge();
+
+        While.isEvenChallenge(10);
+        While.example1();
     }
 
 
