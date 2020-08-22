@@ -42,6 +42,7 @@ public class While {
         /**
          * Adds the digits in a number if >=10
          * **/
+        int startingNumber=number;
         int sum=0;
         if(number>=10){
             do{
@@ -53,7 +54,59 @@ public class While {
         else{
             sum=-1;
         }
-        System.out.println("sum="+sum);
+        System.out.println("sum of digits in "+startingNumber+"="+sum);
 
+    }
+
+    public static boolean isPalindrome(int number) {
+        if(number<0){
+            number=number*-1;
+        }
+
+
+        int startingNumber=number;
+        int multiple = 10;
+        int reverse=0;
+        int currentDigit=0;
+        do{
+            currentDigit=number%10;
+            reverse=(reverse * multiple) + currentDigit;
+            number=number/10;
+
+        }while(number>0);
+        System.out.println("number="+startingNumber);
+        System.out.println("reverse="+reverse);
+        boolean isPalindrome = (startingNumber==reverse);
+        System.out.println("is palidrome="+isPalindrome);
+        return isPalindrome;
+    }
+
+    public static int sumFirstAndLastDigit(int number){
+        if (number<0){
+            System.out.println("Invalid number:"+number);
+            return -1;
+        }
+        int num=number;
+        int count=0;
+        int rem=0;
+        int first = 0;
+        if(num/10 <1) {
+            rem = num + num;
+            System.out.println("rem=" + rem);
+            return rem;
+        }
+        do{
+            rem = num%10;
+            num=num/10;
+            if(count==0){
+                first=rem;
+            }
+            count++;
+            System.out.println("current="+num);
+        }while (num>=10);
+        System.out.println("first="+first+"current="+num);
+        rem=first+num;
+        System.out.println("rem="+rem);
+        return rem;
     }
 }

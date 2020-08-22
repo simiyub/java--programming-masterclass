@@ -15,7 +15,10 @@ public class App {
 
         While.isEvenChallenge(10);
         While.example1();
-        While.digitSumChallenge(-11);
+        While.digitSumChallenge(125);
+        While.isPalindrome(13456);
+        While.sumFirstAndLastDigit(11);
+
     }
 
 
