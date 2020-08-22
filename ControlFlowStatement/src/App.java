@@ -18,6 +18,8 @@ public class App {
         While.digitSumChallenge(125);
         While.isPalindrome(13456);
         While.sumFirstAndLastDigit(11);
+        While.getEvenDigitSum(2000);
+        While.hasSharedDigit(14,32);
 
     }
 
