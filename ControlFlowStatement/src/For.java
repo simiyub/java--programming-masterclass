@@ -1,12 +1,12 @@
-public class For {
-    public static void miniChallenge1() {
+ class For {
+     static void miniChallenge1() {
         for(int i=8; i>=2 ;i--){
             double interest = calculateInterest(10000,i);
             System.out.println("simple interest for 10000 at "+i+"%= "+interest);
         }
     }
 
-    public static void miniChallenge2() {
+     static void miniChallenge2() {
 
         int primeCount = 0;
         for(int i=0; i<=50; i++){
@@ -33,31 +33,31 @@ public class For {
         return true;
     }
 
-    public static double calculateInterest(double amount, double rate) {
+     private static double calculateInterest(double amount, double rate) {
         return amount * rate/100;
     }
 
-    public static void loopWithFor() {
-        For forLesson = new For();
+     static void loopWithFor() {
+
         for (int i=2;i<=8;i++){
-            double interest = forLesson.calculateInterest(10000,i);
+            double interest = For.calculateInterest(10000,i);
             System.out.println("simple interest for 10000 at "+i+"%= "+interest);
         }
     }
 
-    public static void loopWithoutFor() {
-        For forLesson = new For();
-        double interest2 = forLesson.calculateInterest(10000,2);
-        double interest3 = forLesson.calculateInterest(10000,3);
-        double interest4 = forLesson.calculateInterest(10000,4);
-        double interest5 = forLesson.calculateInterest(10000,5);
+     static void loopWithoutFor() {
+
+        double interest2 = For.calculateInterest(10000,2);
+        double interest3 = For.calculateInterest(10000,3);
+        double interest4 = For.calculateInterest(10000,4);
+        double interest5 = For.calculateInterest(10000,5);
         System.out.println("simple interest for 10000 at 2% = "+interest2);
         System.out.println("simple interest for 10000 at 3% = "+interest3);
         System.out.println("simple interest for 10000 at 4% = "+interest4);
         System.out.println("simple interest for 10000 at 5% = "+interest5);
     }
 
-    public static void sum3And5Challenge() {
+     static void sum3And5Challenge() {
         int count = 0;
         int sum=0;
         for(int i=1;i<=1000;i++){
@@ -74,5 +74,38 @@ public class For {
             }
         }
         System.out.println("Sum of first "+count+" numbers divisible by 3 and 5 is:"+sum);
+    }
+
+    static int getGreatestCommonDivisor(int first, int second) {
+        int greatestDivisor=1;
+        if(first>=10 && second>=10){
+            for (int i=2;i<=first;i++){
+
+                if(first%i==0 && second%i==0){
+                    System.out.println("greatest divisor is now "+greatestDivisor);
+                    greatestDivisor=i;
+                }
+            }
+        }
+        else{
+            greatestDivisor=-1;
+        }
+        System.out.println("Greatest common divisor of "+first +" and "+second+" is:"+greatestDivisor);
+        return greatestDivisor;
+    }
+
+     static void printFactors(int number) {
+        if (number > 1) {
+            String numbers = " ";
+            for (int i = 1; i <= number; i++) {
+                if (number % i == 0) {
+                    numbers += (i + " ");
+                }
+            }
+            System.out.println("Factors of " + number + "=" + numbers);
+        }
+        else{
+            System.out.println("Invalid Value");
+        }
     }
 }

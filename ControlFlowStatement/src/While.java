@@ -191,21 +191,4 @@
          return number>=10 && number<=1000;
      }
 
-     static int getGreatestCommonDivisor(int first, int second) {
-         int greatestDivisor=1;
-         if(first>=10 && second>=10){
-             for (int i=2;i<=first;i++){
-
-                 if(first%i==0 && second%i==0){
-                     System.out.println("greatest divisor is now "+greatestDivisor);
-                     greatestDivisor=i;
-                 }
-             }
-         }
-         else{
-             greatestDivisor=-1;
-         }
-         System.out.println("Greatest common divisor of "+first +" and "+second+" is:"+greatestDivisor);
-         return greatestDivisor;
-     }
  }

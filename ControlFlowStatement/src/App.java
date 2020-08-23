@@ -22,7 +22,8 @@ public class App {
         While.hasSharedDigit(14,32);
         While.hasSameLastdigit(12,32,22);
         While.isValidForSameLastDigit(100);
-        While.getGreatestCommonDivisor(72,77);
+        For.getGreatestCommonDivisor(72,77);
+        For.printFactors(35);
 
     }
 
