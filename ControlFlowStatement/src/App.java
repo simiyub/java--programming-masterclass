@@ -20,6 +20,9 @@ public class App {
         While.sumFirstAndLastDigit(11);
         While.getEvenDigitSum(2000);
         While.hasSharedDigit(14,32);
+        While.hasSameLastdigit(12,32,22);
+        While.isValidForSameLastDigit(100);
+        While.getGreatestCommonDivisor(72,77);
 
     }
 

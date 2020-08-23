@@ -38,10 +38,13 @@
         System.out.println("total of first five even numbers between "+start+" and "+finishNumber+" is:"+sum);
     }
 
+
+     /**
+      * Adds the digits in a number if >=10
+      *
+      **/
      static void digitSumChallenge(int number) {
-        /**
-         * Adds the digits in a number if >=10
-         * **/
+
         int startingNumber=number;
         int sum=0;
         if(number>=10){
@@ -138,12 +141,6 @@
      static boolean hasSharedDigit(int number1, int number2) {
 
         if((number1>=10 && number1<=99) && (number2>=10 && number2<=99)){
-            if(number1<0){
-                number1=number1*-1;
-            }
-            if(number2<0){
-                number2=number2*-1;
-            }
 
             int digit1,digit2;
 
@@ -168,4 +165,47 @@
         return false;
 
     }
-}
+
+
+
+      static boolean hasSameLastdigit(int number1, int number2, int number3) {
+         boolean same=false;
+         if(isValidForSameLastDigit(number1) && isValidForSameLastDigit(number2) && isValidForSameLastDigit(number3)){
+             if(number1%10==number2%10){
+                 System.out.println(number1+" and "+number2+" have the same last digit");
+                 same=true;
+             }
+             if(number1%10==number3%10){
+                 System.out.println(number1+" and "+number3+" have the same last digit");
+                 same=true;
+             }
+             if(number2%10==number3%10){
+                 System.out.println(number2+" and "+number3+" have the same last digit");
+                 same=true;
+             }
+         }
+         return same;
+     }
+
+     static boolean isValidForSameLastDigit(int number) {
+         return number>=10 && number<=1000;
+     }
+
+     static int getGreatestCommonDivisor(int first, int second) {
+         int greatestDivisor=1;
+         if(first>=10 && second>=10){
+             for (int i=2;i<=first;i++){
+
+                 if(first%i==0 && second%i==0){
+                     System.out.println("greatest divisor is now "+greatestDivisor);
+                     greatestDivisor=i;
+                 }
+             }
+         }
+         else{
+             greatestDivisor=-1;
+         }
+         System.out.println("Greatest common divisor of "+first +" and "+second+" is:"+greatestDivisor);
+         return greatestDivisor;
+     }
+ }
