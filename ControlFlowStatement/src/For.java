@@ -108,4 +108,23 @@
             System.out.println("Invalid Value");
         }
     }
-}
+
+     static boolean isPerfectNumber(int number) {
+         boolean perfect=false;
+         if(number>=1){
+             int sum=0;
+             for(int i=1;i<number;i++){
+                 if(number%i==0){
+                     sum+=i;
+                     System.out.println("sum of divisors now="+sum);
+                 }
+             }
+             System.out.println("sum of divisors for "+number+"="+sum);
+             perfect = number==sum;
+             String perfectOrNot = perfect? "":" not";
+             System.out.println(number+" is"+perfectOrNot+" a perfect number.");
+         }
+
+         return perfect;
+     }
+ }

@@ -191,4 +191,84 @@
          return number>=10 && number<=1000;
      }
 
+     static int getDigitCount(int number) {
+         int count=0;
+         if(number>0){
+             int checker=1;
+             while(checker<=number){
+                 count+=1;
+                 checker*=10;
+                 System.out.println("count="+count);
+             }
+         }
+         else if(number==0){
+             count=1;
+         }
+         else{
+             count=-1;
+         }
+         return count;
+     }
+
+     static int reverse(int received){
+         int rev=0;
+         int number=received;
+         boolean reversed=false;
+         if(number<0){
+             number*=-1;
+             reversed=true;
+         }
+          while(number>0){
+              int digit = number%10;
+              rev=(rev*10)+digit;
+
+              number/=10;
+
+          }
+          if(reversed){
+              rev*=-1;
+          }
+         System.out.println("reverse="+rev);
+          return rev;
+
+     }
+
+     static void numberToWords(int number) {
+
+         if (number == 0) {
+             System.out.println(number + " in words is:" + "Zero");
+         }
+         else {
+             int reversed = While.reverse(number);
+             int originalDigitCount = getDigitCount(number);
+             int reversedDigitCount = getDigitCount(reversed);
+
+             System.out.println("original digit count=" + originalDigitCount);
+             System.out.println("reversed digit count=" + reversedDigitCount);
+             String word = "";
+             int toWords = reversed;
+             while (toWords > 0) {
+                 int digit = toWords % 10;
+                 word += digit == 0 ? " Zero"
+                         : digit == 1 ? " One"
+                         : digit == 2 ? " Two"
+                         : digit == 3 ? " Three"
+                         : digit == 4 ? " Four"
+                         : digit == 5 ? " Five"
+                         : digit == 6 ? " Six"
+                         : digit == 7 ? " Seven"
+                         : digit == 8 ? " Eight"
+                         : digit == 9 ? " Nine"
+                         : "Invalid Value";
+                 toWords /= 10;
+             }
+             for (int i = 0; i < (originalDigitCount - reversedDigitCount); i++) {
+                 word += " Zero";
+             }
+
+             System.out.println(number + " in words is:" + word);
+
+         }
+     }
+
  }

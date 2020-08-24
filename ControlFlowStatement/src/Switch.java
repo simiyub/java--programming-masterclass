@@ -1,6 +1,6 @@
-public class Switch {
+ class Switch {
 
-    public void switchLesson(){
+     void switchLesson(){
         int switchValue = 1;
         String messageHeader = "value was " ;
         switch(switchValue){
@@ -21,7 +21,7 @@ public class Switch {
     }
 
 
-    public void challengeChar() {
+     void challengeChar() {
         char switchValue = 'A';
         String message = "value was ";
         char a = 'A';
@@ -46,7 +46,7 @@ public class Switch {
 
     }
 
-    public void switchString(){
+     void switchString(){
         String switchValue = "January";
 
         switch (switchValue){
@@ -62,7 +62,7 @@ public class Switch {
         }
     }
 
-    public void challengeString(int day
+     void challengeString(int day
     ) {
         String wordedDay="unknown";
 
@@ -87,7 +87,7 @@ public class Switch {
         System.out.println(message);
     }
 
-    public void challengeStringBonus(int dayNumber) {
+     void challengeStringBonus(int dayNumber) {
 
         String day =
                   dayNumber==0 ? "Sunday"
@@ -98,4 +98,6 @@ public class Switch {
                           : "Unknown";
         System.out.println("Day "+dayNumber+" of the week is "+day);
     }
+
+
 }
