@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/MethodOverloading/MethodOverloading.iml" filepath="$PROJECT_DIR$/MethodOverloading/MethodOverloading.iml" />
       <module fileurl="file://$PROJECT_DIR$/Methods/Methods.iml" filepath="$PROJECT_DIR$/Methods/Methods.iml" />
       <module fileurl="file://$PROJECT_DIR$/Operators/Operators.iml" filepath="$PROJECT_DIR$/Operators/Operators.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PassingValuesFromAString/PassingValuesFromAString.iml" filepath="$PROJECT_DIR$/PassingValuesFromAString/PassingValuesFromAString.iml" />
       <module fileurl="file://$PROJECT_DIR$/ShowString/ShowString.iml" filepath="$PROJECT_DIR$/ShowString/ShowString.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-programming-masterclass.iml" filepath="$PROJECT_DIR$/.idea/java-programming-masterclass.iml" />
     </modules>
