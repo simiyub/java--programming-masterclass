@@ -10,7 +10,77 @@ public class App {
         canPack(-3,2,11); //false
         canPack(4,18,19); //true
         canPack(5,3,24); //false
+        getLargestPrime(21);//7
+        getLargestPrime(217);//31
+        getLargestPrime(0);//-1
+        getLargestPrime(45);//5
+        getLargestPrime(-1);//-1
+        getLargestPrime(1147);//37
+        getLargestPrime(7);//7
+        getLargestPrime(31);//31
+        printSquareStar(5);
 
+    }
+
+    private static void printSquareStar(int number) {
+        if(number>=5){
+
+            String star = "*";
+            String space=" ";
+            for(int rowCount=1;rowCount<=number;rowCount++) {
+
+                for(int columnCount=1;columnCount<=number;columnCount++){
+                    if(rowCount==1||rowCount==number){
+                        System.out.print(star);
+                    }
+                    else if((rowCount!=1 && rowCount!=number) && (columnCount==1 || columnCount==number )){
+                        System.out.print(star);
+                    }
+                    else if (rowCount==columnCount){
+                        System.out.print(star);
+                    }
+                    else if(columnCount==(number-rowCount)+1){
+                        System.out.print(star);
+
+                    }
+                    else {
+                        System.out.print(space);
+                    }
+                }
+                System.out.println();
+                }
+        }
+        else{
+            System.out.println("Invalid Value");
+        }
+
+    }
+
+    private static int getLargestPrime(int number) {
+        int largestPrime = -1;
+        if(number==2 || number==3 || number==5 || number==7){
+
+            largestPrime=number;
+        }
+        else {
+            for (int i = 2; i <= number; i++) {
+                if ((i == 2 || i == 3 || i == 5 || i == 7) || (i % 2 != 0 && i % 3 != 0 && i % 5 != 0 && i % 7 != 0)) {
+
+                    if (number % i == 0) {
+                        if (largestPrime == -1 && i == number) {
+                            largestPrime = number;
+                        }
+                        else if(i!=number){
+                            largestPrime = i;
+                        }
+
+                    }
+                }
+            }
+        }
+
+        System.out.println("prime divisor:"+largestPrime);
+        return largestPrime;
     }
 
     private static boolean canPack(int bigCount, int smallCount, int goal){
