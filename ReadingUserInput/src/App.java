@@ -5,6 +5,44 @@ public class App {
 
         example();
         readingUserInputChallenge();
+        minMaxChallenge();
+    }
+
+    private static void minMaxChallenge() {
+
+        System.out.println("This program will work out the minimum and maximum of values entered by the user\n");
+        System.out.println("Type x to exit.");
+        Scanner inputSource=new Scanner(System.in);
+        boolean starting=true;
+        int min=-1;
+        int max=-1;
+        int value = -1;
+        while (true){
+            System.out.println("Enter a value:");
+            if(inputSource.hasNextInt()){
+                value=inputSource.nextInt();
+
+                if(starting){
+                    min=value;
+                    max=value;
+                    starting=false;
+                }
+                min = value<min ? value : min;
+                max = value>max ? value : max;
+                inputSource.nextLine();
+            }
+            else if(inputSource.hasNext("x")){
+                System.out.println("Exiting..");
+                break;
+            }
+            else {
+                System.out.println("Invalid input of "+inputSource.next()+" entered. Program will exit.");
+                break;
+            }
+
+        }
+        System.out.println("The min value received was:"+min+" and max value was:"+max);
+        inputSource.close();
     }
 
     private static void readingUserInputChallenge() {
