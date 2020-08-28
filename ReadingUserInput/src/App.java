@@ -3,10 +3,39 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-        example();
-        readingUserInputChallenge();
-        minMaxChallenge();
-        inputThenPrintSumAndAverage();
+//        example();
+//        readingUserInputChallenge();
+//        minMaxChallenge();
+//        inputThenPrintSumAndAverage();
+        getBucketCount(-3.4,2.1,1.5,2);
+        getBucketCount(3.4,2.1,1.5,2);
+        getBucketCount(2.75,3.25,2.5,1);
+        getBucketCount(-3.4,2.1,1.5);
+        getBucketCount(3.4,2.1,1.5);
+        getBucketCount(7.25,4.3,2.35);
+        getBucketCount(3.4,1.5);
+        getBucketCount(6.26,2.2);
+        getBucketCount(3.26,0.75);
+    }
+
+    private static int getBucketCount(double width, double height, double areaPerBucket){
+        return getBucketCount(width,height,areaPerBucket,0);
+    }
+
+    private static int getBucketCount(double width, double height, double areaPerBucket, int extraBuckets) {
+        int count=-1;
+        if((width>0 && height>0 && areaPerBucket>0) && extraBuckets>=0){
+            count=(int)getBucketCount((width*height), areaPerBucket)-extraBuckets;
+        }
+        return count;
+    }
+
+    private static int getBucketCount(double area, double areaPerBucket) {
+        int count=-1;
+        if(area>0 && areaPerBucket>0){
+            count=(int)(Math.ceil(area/areaPerBucket));
+        }
+        return count;
     }
 
     private static void inputThenPrintSumAndAverage() {
