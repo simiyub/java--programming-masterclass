@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-//        example();
-//        readingUserInputChallenge();
-//        minMaxChallenge();
-//        inputThenPrintSumAndAverage();
+        example();
+        readingUserInputChallenge();
+        minMaxChallenge();
+        inputThenPrintSumAndAverage();
         getBucketCount(-3.4,2.1,1.5,2);
         getBucketCount(3.4,2.1,1.5,2);
         getBucketCount(2.75,3.25,2.5,1);
