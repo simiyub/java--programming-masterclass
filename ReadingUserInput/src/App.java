@@ -6,8 +6,34 @@ public class App {
         example();
         readingUserInputChallenge();
         minMaxChallenge();
+        inputThenPrintSumAndAverage();
     }
 
+    private static void inputThenPrintSumAndAverage() {
+        Scanner inputSource = new Scanner(System.in);
+        System.out.println("This program will print out sum and average of numbers input by a user.");
+        int sum = 0;
+        long avg = 0;
+        int count = 0;
+        String numbers = "";
+
+        while (true) {
+            System.out.println("Please enter a number");
+            if (inputSource.hasNextInt()) {
+                count++;
+                int number = inputSource.nextInt();
+                sum += number;
+                numbers += " " + number +",";
+                System.out.println("Numbers received so far:" + numbers);
+                inputSource.nextLine();
+            } else {
+                avg = Math.round((double) sum / count);
+                break;
+            }
+        }
+        System.out.println("SUM = " + sum + " AVG = " + avg);
+        inputSource.close();
+    }
     private static void minMaxChallenge() {
 
         System.out.println("This program will work out the minimum and maximum of values entered by the user\n");
