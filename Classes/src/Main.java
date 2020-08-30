@@ -1,4 +1,9 @@
 import data.*;
+import data.carpetcostcalculator.Calculator;
+import data.carpetcostcalculator.Carpet;
+import data.carpetcostcalculator.Floor;
+
+import java.awt.datatransfer.FlavorListener;
 
 
 public class Main {
@@ -10,7 +15,85 @@ public class Main {
         vipCustomerChallenge();
         codingExerciseWall();
         codingExercisePoint();
+        codingExerciseCarpetCostCalculator();
+        codingExerciseComplexOperation();
 
+    }
+
+    private static void codingExerciseComplexOperation() {
+
+        ComplexNumber complex23_75 = new ComplexNumber(2.3,4.5);
+        printComplexNumber(complex23_75);
+        complex23_75.add(7.7,5.5);
+        printComplexNumber(complex23_75);
+        ComplexNumber complex_44_66=new ComplexNumber(4.4,6.6);
+        complex23_75.add(complex_44_66);
+        printComplexNumber(complex23_75);
+
+        complex23_75.subtract(complex_44_66);
+        printComplexNumber(complex23_75);
+        complex23_75.subtract(7.7,5.5);
+        printComplexNumber(complex23_75);
+
+        ComplexNumber complex1_1 = new ComplexNumber(1.0,1.0);
+        printComplexNumber(complex1_1);
+        complex1_1.add(1,1);
+        printComplexNumber(complex1_1);
+        ComplexNumber complex25_15=new ComplexNumber(2.5,-1.5);
+        complex1_1.subtract(complex25_15);
+        printComplexNumber(complex1_1);
+        printComplexNumber(complex25_15);
+        complex25_15.subtract(complex1_1);
+        printComplexNumber(complex25_15);
+    }
+
+    private static void printComplexNumber(ComplexNumber number) {
+        System.out.println("["+number.getReal()+","+number.getImaginary()+"]");
+    }
+
+    private static void codingExerciseCarpetCostCalculator() {
+        Floor defaultFloor = new Floor();
+        defaultFloor.setLength(10);
+        defaultFloor.setWidth(10);
+        printFloorArea(defaultFloor);
+
+        Floor defaultWithNegativeLength = new Floor();
+        defaultWithNegativeLength.setLength(-1);
+        defaultWithNegativeLength.setWidth(100);
+        printFloorArea(defaultWithNegativeLength);
+
+        Floor defaultWithNegativeWidth = new Floor();
+        defaultWithNegativeWidth.setLength(10);
+        defaultWithNegativeWidth.setWidth(-12);
+        printFloorArea(defaultWithNegativeWidth);
+
+        Floor dimensionfloor = new Floor(4,5);
+        printFloorArea(dimensionfloor);
+
+        Floor dimensionFloorWithNegativeWidth=new Floor(-1,10);
+        printFloorArea(dimensionFloorWithNegativeWidth);
+
+        Floor dimensionFloorWithNegativeHeight=new Floor(10,-10);
+        printFloorArea(dimensionFloorWithNegativeHeight);
+
+        Carpet carpet = new Carpet();
+        Carpet carpetWithCost = new Carpet(5.0);
+        System.out.println("cost of default carpet is="+carpet.getCost());
+        System.out.println("cost of costed carpet is="+carpetWithCost.getCost());
+
+        Calculator calculator = new Calculator(new Floor(4,5), new Carpet(10));
+        printCarpetingCost(calculator);
+    }
+
+    private static void printCarpetingCost(Calculator calculator) {
+        System.out.println("total cost of carpeting a floor of area="
+                +calculator.getFloor().getArea()
+                +"\n at "+calculator.getCarpet().getCost()+" per square meter is:\n"
+                +calculator.getTotalCost());
+    }
+
+    private static void printFloorArea(Floor floor) {
+        System.out.println("area of floor ["+floor.getWidth()+"X"+floor.getLength()+"]="+floor.getArea());
     }
 
     private static void codingExercisePoint() {
