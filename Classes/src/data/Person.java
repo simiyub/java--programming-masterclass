@@ -1,3 +1,5 @@
+package data;
+
 public class Person {
     String firstName="";
             String lastName="";

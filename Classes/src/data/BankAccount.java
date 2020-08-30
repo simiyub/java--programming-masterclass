@@ -1,3 +1,5 @@
+package data;
+
 public class BankAccount {
 
     private final String accountNumber;
@@ -7,10 +9,17 @@ public class BankAccount {
     private double balance;
 
     public BankAccount(String accountNumber, String customerName, String email, String phone) {
+
+        //Save the field values directly rather than using setters to guarantee they are set.
         this.accountNumber=accountNumber;
         this.customerName=customerName;
         this.email=email;
         this.phone=phone;
+    }
+
+    public BankAccount() {
+        //Calling another constructor from one that exists using this keyword has to be the first statement in the constructor.
+        this("12345", "unknown", "info@bank.com","6789");
     }
 
     public String getAccountNumber() {

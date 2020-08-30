@@ -1,3 +1,4 @@
+import data.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -5,6 +6,33 @@ public class Main {
         sumCalculatorCodingExercise();
         personCodingExercise();
         bankAccountChallenge();
+        vipCustomerChallenge();
+        codingExerciseWall();
+
+    }
+
+    private static void codingExerciseWall() {
+        Wall defaultWall=new Wall();
+        printWallArea(defaultWall);
+        Wall withWidthAndHeight = new Wall(2.5, 4);
+        printWallArea(withWidthAndHeight);
+    }
+
+    private static void printWallArea(Wall wall) {
+        System.out.println("area of wall["+wall.getWidth()+"X"+wall.getHeight()+"]="+wall.getArea());
+    }
+
+    private static void vipCustomerChallenge() {
+        VIPCustomer vipDefault=new VIPCustomer();
+        printCustomerDetails(vipDefault);
+        VIPCustomer vipWithTwoValues=new VIPCustomer("two values", "two.values@bank.com");
+        printCustomerDetails(vipWithTwoValues);
+        VIPCustomer vipWithValues=new VIPCustomer("with values", 20.00,"with.values@bank.com");
+        printCustomerDetails(vipWithValues);
+    }
+
+    private static void printCustomerDetails(VIPCustomer customer) {
+        System.out.println("customer name:"+customer.getName()+"\nemail:"+customer.getEmail()+"\ncredit limit="+customer.getCreditLimit());
     }
 
     private static void bankAccountChallenge() {
