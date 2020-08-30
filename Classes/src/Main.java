@@ -1,5 +1,6 @@
 import data.*;
 
+
 public class Main {
     public static void main(String[] args) {
         example();
@@ -8,8 +9,23 @@ public class Main {
         bankAccountChallenge();
         vipCustomerChallenge();
         codingExerciseWall();
+        codingExercisePoint();
 
     }
+
+    private static void codingExercisePoint() {
+        Point defaultPoint=new Point();
+        defaultPoint.setX(3);
+        defaultPoint.setY(4);
+        System.out.println("distance from [0,0] to [3,4] is "+defaultPoint.distance());
+
+        Point point22=new Point(2,2);
+        System.out.println("distance from [2,2] to [4,5] is "+point22.distance(4,5));
+
+        Point point1010=new Point(10,10);
+        System.out.println("distance from [2,2] to [10,10] is "+point22.distance(point1010));
+    }
+
 
     private static void codingExerciseWall() {
         Wall defaultWall=new Wall();
