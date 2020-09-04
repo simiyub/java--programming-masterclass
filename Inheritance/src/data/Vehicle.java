@@ -61,5 +61,14 @@ public class Vehicle {
         this.direction+=direction;
         System.out.println("current direction="+direction+" degrees.");
     }
+    public void move(int velocity, int direction){
+        this.velocity = velocity;
+        this.direction=direction;
+        System.out.println("vehicle moving at "+velocity+" in "+direction+" direction.");
+    }
+
+    public void stop(){
+        setVelocity(0);
+    }
 
 }

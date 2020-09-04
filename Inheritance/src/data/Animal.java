@@ -21,7 +21,7 @@ public class Animal {
     }
 
     public void move(int speed){
-        System.out.println("moving at speed of "+speed+" steps per minute");
+        System.out.println("Animal moving at speed of "+speed+" steps per minute");
     }
 
     public String getName() {

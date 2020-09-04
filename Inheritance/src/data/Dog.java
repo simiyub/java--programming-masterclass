@@ -7,6 +7,18 @@ public class Dog extends Animal {
     private int tails;
     private String coat;
 
+    public Dog(String name, int size, int weight, int eyes, int legs, int tails, int teeth, String coat)
+    {
+        super(name,1,1,size,weight);
+        this.eyes=eyes;
+        this.legs=legs;
+        this.tails=tails;
+        this.teeth=teeth;
+        this.coat=coat;
+
+
+    }
+
     public int getEyes() {
         return eyes;
     }
@@ -47,21 +59,33 @@ public class Dog extends Animal {
         this.coat = coat;
     }
 
+    private void chew(){
+        System.out.println("Dog can chew.");
+    }
+
     @Override
     public void eat(String foodType) {
+        chew();
         super.eat(foodType);
         System.out.println("Dog bites and chews.");
     }
-
-    public Dog(String name, int size, int weight, int eyes, int legs, int tails, int teeth, String coat)
+    public void walk(){
+        System.out.println("Dog can walk.");
+        move(10);
+    }
+    public void run()
     {
-        super(name,1,1,size,weight);
-        this.eyes=eyes;
-        this.legs=legs;
-        this.tails=tails;
-        this.teeth=teeth;
-        this.coat=coat;
+        System.out.println("Dog can run.");
+    }
 
+    @Override
+    public void move(int speed) {
+        System.out.println("Dog moving.");
+        moveLegs();
+        super.move(speed);
+    }
 
+    private void moveLegs() {
+        System.out.println("Dog moving legs.");
     }
 }

@@ -25,8 +25,60 @@ public class Car extends Vehicle{
         this.isManual=isManual;
 
     }
-    public void currentGear(int gear){
+    public void changeGear(int gear){
         this.gear=gear;
-        System.out.println("gear now="+this.gear);
+        System.out.println("gear now is "+this.gear);
+    }
+
+    public void changeVelocity(int velocity, int direction){
+        move(velocity,direction);
+        System.out.println("changed velocity to "+getVelocity()+" in direction "+getDirection());
+    }
+
+    public void accelerate(int rate) {
+        int newVelocity = ((getVelocity() + rate));
+        if (newVelocity > 0) {
+            changeVelocity(newVelocity, getDirection());
+        }
+    }
+
+    public String getSteeringType() {
+        return steeringType;
+    }
+
+    public int getGears() {
+        return gears;
+    }
+
+    public String getMake() {
+        return make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public int getYearOfManufacture() {
+        return yearOfManufacture;
+    }
+
+    public int getWheels() {
+        return wheels;
+    }
+
+    public int getDoors() {
+        return doors;
+    }
+
+    public boolean isManual() {
+        return isManual;
+    }
+
+    public int getGear() {
+        return gear;
+    }
+
+    public void setGear(int gear) {
+        this.gear = gear;
     }
 }
