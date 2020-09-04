@@ -1,7 +1,4 @@
-import data.Animal;
-import data.Dog;
-import data.Fish;
-import data.RangeRover;
+import data.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,7 +13,10 @@ public class Main {
     }
 
     private static void codingExercise35() {
-
+        Circle circle=new Circle(10);
+        circle.getArea();
+        Cylinder cylinder=new Cylinder(10,10);
+        cylinder.getVolume();
     }
 
     private static void example() {
