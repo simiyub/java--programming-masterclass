@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/ByteShortIntLong/ByteShortIntLong.iml" filepath="$PROJECT_DIR$/ByteShortIntLong/ByteShortIntLong.iml" />
       <module fileurl="file://$PROJECT_DIR$/CharBoolean/CharBoolean.iml" filepath="$PROJECT_DIR$/CharBoolean/CharBoolean.iml" />
       <module fileurl="file://$PROJECT_DIR$/Classes/Classes.iml" filepath="$PROJECT_DIR$/Classes/Classes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Composition/Composition.iml" filepath="$PROJECT_DIR$/Composition/Composition.iml" />
       <module fileurl="file://$PROJECT_DIR$/ControlFlowStatement/ControlFlowStatement.iml" filepath="$PROJECT_DIR$/ControlFlowStatement/ControlFlowStatement.iml" />
       <module fileurl="file://$PROJECT_DIR$/FirstSteps/FirstSteps.iml" filepath="$PROJECT_DIR$/FirstSteps/FirstSteps.iml" />
       <module fileurl="file://$PROJECT_DIR$/FloatDouble/FloatDouble.iml" filepath="$PROJECT_DIR$/FloatDouble/FloatDouble.iml" />
