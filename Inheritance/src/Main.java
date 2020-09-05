@@ -10,6 +10,14 @@ public class Main {
         RangeRover range = new RangeRover("Left","Vogue",2020,5,200,false,300,200,150);
         range.accelerate(30);
         codingExercise35();
+        codingExercise36();
+    }
+
+    private static void codingExercise36() {
+        Rectangle rectangle = new Rectangle(10,10);
+        rectangle.getArea();
+        Cuboid cuboid = new Cuboid(5,5,10);
+        cuboid.getVolume();
     }
 
     private static void codingExercise35() {
