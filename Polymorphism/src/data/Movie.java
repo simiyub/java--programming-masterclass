@@ -1,3 +1,5 @@
+package data;
+
 public class Movie {
 
     private String name;
@@ -31,7 +33,7 @@ public class Movie {
 
 class Jaws extends Movie {
     public Jaws() {
-        super("Jaws");
+        super("data.Jaws");
     }
     @Override
     public String plot(){
@@ -72,6 +74,6 @@ class StarWars extends Movie{
 
 class Forgetable extends Movie{
     public Forgetable(){
-        super("Forgetable");
+        super("data.Forgetable");
     }
 }
