@@ -6,13 +6,9 @@ public class DeluxeBurger extends Burger {
 
     public DeluxeBurger(String type,
                         Ingredient meat,
-                        Ingredient topping1,
-                        Ingredient topping2,
-                        Ingredient topping3,
-                        Ingredient topping4,
                         boolean chips,
                         Drink drink) {
-        super(type, meat, topping1, topping2, topping3, topping4);
+        super(type, meat);
         this.chips=chips;
         this.drink=drink;
     }
