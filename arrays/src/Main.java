@@ -5,12 +5,67 @@ public class Main {
 
     public static void main(String[] args) {
 
-        creatingArrays();
-        example();
-        challenge();
+//        creatingArrays();
+//        example();
+//        challenge();
+//       minimumElementChallenge();
+        int [] array={1,2,3,4,5};
+        reverseArrayChallenge(array);
 
     }
 
+    private static void reverseArrayChallenge(int[] reverse) {
+
+        reverseArray(reverse);
+        timReverseSolution(reverse);
+    }
+
+    private static void timReverseSolution(int[] reverse) {
+        System.out.println("before reverse:"+Arrays.toString(reverse));
+        int maxIndex=reverse.length-1;
+        int halfLength=reverse.length/2;
+        for (int i=0;i<halfLength;i++){
+            int temp = reverse[i];
+            reverse[i] = reverse[maxIndex-i];
+            reverse[maxIndex-i]=temp;
+        }
+        System.out.println("after reversal:"+Arrays.toString(reverse))   ;
+    }
+
+    private static void reverseArray(int[] reverse) {
+        System.out.println("before reverse:"+Arrays.toString(reverse));
+        int[] reversed=new int[reverse.length];
+        int count = 0;
+        for(int i=reverse.length-1;i>=0;i--){
+            reversed[count]=reverse[i];
+            count++;
+        }
+        System.out.println("after reversal:"+Arrays.toString(reversed))   ;
+    }
+
+    private static void minimumElementChallenge() {
+        String action="find minimum";
+        int count=getInputCount(action);
+        int[] array=getIntegers(count,action);
+        int min=findMin(array);
+        System.out.println("The minimum number in "+Arrays.toString(array)+" is "+min);
+    }
+
+    private static int getInputCount(String action) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter count of numbers you will "+action);
+        return scanner.nextInt();
+    }
+
+    private static int findMin(int[] numbers) {
+        int min=numbers[0];
+        for(int i=0;i<numbers.length;i++){
+            if(numbers[i]<min){
+                min=numbers[i];
+            }
+        }
+        return min;
+    }
 
 
     private static void creatingArrays() {
@@ -33,20 +88,22 @@ public class Main {
     }
 
     private static void example() {
-        int[] intArray=getIntegers(5, "average");
+        String action = "average";
+        int[] intArray=getIntegers(getInputCount(action),action );
         printArray(intArray);
         System.out.println("average of these numbers is: "+getAverage(intArray));
     }
 
     private static void challenge() {
-        int[] toSort = getIntegers(5, "sort");
+        String action = "sort";
+        int[] toSort = getIntegers(getInputCount(action), action);
         printArray(toSort);
         int[] sortedArray=sortArray(toSort);
         System.out.println("sorted:");
         printArray(sortedArray);
 
         int[] sortedTimsArray=timSortSolution(toSort);
-        System.out.println("sorted:");
+        System.out.println("sorted, Tim's solution:");
         printArray(sortedTimsArray);
     }
 
