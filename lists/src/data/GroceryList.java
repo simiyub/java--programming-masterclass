@@ -9,10 +9,12 @@ import java.util.List;
 
 public class GroceryList {
 
-    private String type=null;
+    private String type;
     private ArrayList<Product> products;
 
     public GroceryList() {
+        type="Shopping";
+        products=new ArrayList<>();
     }
     public GroceryList(String type, Product product) {
         this.type=type;
@@ -21,30 +23,48 @@ public class GroceryList {
         print();
     }
 
+    /**
+     * creating array list with {add}
+     * */
     public GroceryList(String type, Product product1, Product product2) {
+
         this.type=type;
         products=new ArrayList<>(){{add(product1);add(product2);}};
         print();
     }
 
+    /**
+     * creating array list with List of
+     * */
     public GroceryList(String type, Product[] list) {
+
         this.type=type;
         products=new ArrayList<>(List.of(list));
         print();
     }
 
+    /**
+     * creating array list from a List
+     * */
+    public GroceryList(String type, Product product1, Product product2, Product product3) {
+
+        this.type=type;
+        products=new ArrayList<>(Arrays.asList(product1,product2,product3));
+        print();
+    }
+
+    /**
+     * creating an array list from an Arraylist
+     * */
     public GroceryList(String type, ArrayList<Product> list) {
+
         this.type=type;
         products = new ArrayList<>();
         products.addAll(list);
         print();
     }
 
-    public GroceryList(String type, Product product1, Product product2, Product product3) {
-        this.type=type;
-        products=new ArrayList<>(Arrays.asList(product1,product2,product3));
-        print();
-    }
+
 
 
 
@@ -65,20 +85,7 @@ public class GroceryList {
             Product prod=products.get(i);
             System.out.println(prod.getQuantity()+" "+prod.getName());
         }
-        System.out.println("");
-    }
-
-    public void add(Product product1, Product product2) {
-        if (products==null){
-            products = new ArrayList<>() {
-                {add(product1);add(product2);}
-            };
-        }
-        else{
-            products.add(product1);
-            products.add(product2);
-        }
-
+        System.out.println();
     }
 
     public void update(String product, int quantity) {
@@ -121,7 +128,9 @@ public class GroceryList {
                 return quantity;
             }
         }
+        System.out.println(productName+" is not in the grocery list.");
 
         return 0;
     }
+
 }

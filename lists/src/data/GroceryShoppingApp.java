@@ -2,10 +2,10 @@ package data;
 
 import java.util.Scanner;
 
-public class GroceryShop {
+public class GroceryShoppingApp {
     GroceryList groceryList;
     private Scanner userInput;
-    public GroceryShop(){
+    public GroceryShoppingApp(){
          groceryList = new GroceryList();
         userInput = new Scanner(System.in);
     }
@@ -14,9 +14,11 @@ public class GroceryShop {
         boolean quit = false;
         while(!quit){
             System.out.println("Please select action you require from list below");
+            printInstructions();
+            System.out.println("Action:");
             int choice = userInput.nextInt();
             userInput.nextLine();
-            printInstructions();
+
             switch (choice){
                 case 0:
                     printInstructions();
@@ -80,7 +82,7 @@ public class GroceryShop {
     }
 
     private void printInstructions() {
-        System.out.println("0 - Print Instructions.\n " +
+        System.out.println("0 - Print Instructions.\n" +
                 "1 - Print Grocery List.\n" +
                 "2 - Search for an Item.\n" +
                 "3 - Add Item.\n" +

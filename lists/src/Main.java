@@ -1,6 +1,6 @@
 
 import data.GroceryList;
-import data.GroceryShop;
+import data.GroceryShoppingApp;
 import data.Product;
 
 import java.util.ArrayList;
@@ -9,13 +9,13 @@ import java.util.Scanner;
 
 public class Main {
     private static Scanner userInput;
-    private GroceryShop shop;
+    private GroceryShoppingApp shop;
     public static void main(String[] args) {
         exampleArrayList();
         exampleGroceryList();
         //remove multiple
         //update multiple
-        GroceryShop groceryApp=new GroceryShop();
+        GroceryShoppingApp groceryApp=new GroceryShoppingApp();
         groceryApp.run();
     }
 
