@@ -20,6 +20,7 @@
       <module fileurl="file://$PROJECT_DIR$/ReadingUserInput/ReadingUserInput.iml" filepath="$PROJECT_DIR$/ReadingUserInput/ReadingUserInput.iml" />
       <module fileurl="file://$PROJECT_DIR$/ShowString/ShowString.iml" filepath="$PROJECT_DIR$/ShowString/ShowString.iml" />
       <module fileurl="file://$PROJECT_DIR$/arrays/arrays.iml" filepath="$PROJECT_DIR$/arrays/arrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autoboxing-unboxing/autoboxing-unboxing.iml" filepath="$PROJECT_DIR$/autoboxing-unboxing/autoboxing-unboxing.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-programming-masterclass.iml" filepath="$PROJECT_DIR$/.idea/java-programming-masterclass.iml" />
       <module fileurl="file://$PROJECT_DIR$/lists/lists.iml" filepath="$PROJECT_DIR$/lists/lists.iml" />
       <module fileurl="file://$PROJECT_DIR$/oop/oop.iml" filepath="$PROJECT_DIR$/oop/oop.iml" />
