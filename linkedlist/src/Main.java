@@ -1,18 +1,96 @@
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
+import java.util.Scanner;
 
 public class Main {
+
+    /**Inserts and deletions can be slow with arraylists.
+     * Linked lists store a value and a pointer to the
+     * next element in the list
+     */
     public static void main(String[] args) {
-        /**Inserts and deletions can be slow with arraylists.
-         * Linked lists store a value and a pointer to the
-         * next element in the list
-         */
+
         example();
-        exampleOrderedInsertion();
+        exampleLinkedListOrderedInsert();
+
+        LinkedList<String> citiesToVisit=new LinkedList<>();
+        citiesToVisit.add("London");
+        citiesToVisit.add("Paris");
+        citiesToVisit.add("Berlin");
+        exampleDoublyLinkedList(citiesToVisit);
     }
 
-    private static void exampleOrderedInsertion() {
+    private static void exampleDoublyLinkedList(LinkedList<String> cities) {
+        Scanner scanner = new Scanner(System.in);
+        boolean quit = false;
+        boolean goingForward = true;
+        ListIterator<String> listIterator = cities.listIterator();
+
+        if(cities.isEmpty()){
+            System.out.println("Nowhere to visit");
+        }
+        else {
+            System.out.println("Now visiting "+listIterator.next());
+            printMenu();
+        }
+
+        while(!quit){
+            int action = scanner.nextInt();
+            scanner.nextLine();
+            switch (action){
+                case 0:
+                    System.out.println("Holiday over");
+                    quit=true;
+                    break;
+                case 1:
+                    if(!goingForward){
+                        if(listIterator.hasNext()){
+                            listIterator.next();
+                        }
+                        goingForward=true;
+                    }
+                    if(listIterator.hasNext()){
+                        System.out.println("Now visiting "+listIterator.next());
+                    }
+                    else{
+                        System.out.println("End of list.");
+                        goingForward=false;
+                    }
+                    break;
+                case 2:
+                    if(goingForward){
+                        if(listIterator.hasPrevious()){
+                            listIterator.previous();
+                        }
+                        goingForward=false;
+                    }
+                    if (listIterator.hasPrevious()) {
+
+                        System.out.println("Now visiting "+listIterator.previous());
+                    }
+                    else{
+                        System.out.println("You're reached the beginning of your list.");
+                        goingForward=true;
+                    }
+                    break;
+                case 3:
+                    printMenu();
+                    break;
+            }
+
+        }
+    }
+
+    private static void printMenu() {
+        System.out.println("Actions available");
+        System.out.println("0-Quit\n" +
+                "1-Next Destination\n" +
+                "2-Previous Destination\n" +
+                "3-Print Menu options.");
+    }
+
+    private static void exampleLinkedListOrderedInsert() {
 
 
         LinkedList<String> citiesToVisit=new LinkedList<>();
