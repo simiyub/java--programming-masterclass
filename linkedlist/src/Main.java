@@ -1,3 +1,6 @@
+import data.Album;
+import data.Song;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
@@ -11,14 +14,14 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        example();
-        exampleLinkedListOrderedInsert();
+        challenge();
+    }
 
-        LinkedList<String> citiesToVisit=new LinkedList<>();
-        citiesToVisit.add("London");
-        citiesToVisit.add("Paris");
-        citiesToVisit.add("Berlin");
-        exampleDoublyLinkedList(citiesToVisit);
+    private static void challenge() {
+
+        MusicPlayer player = new MusicPlayer();
+        player.run();
+
     }
 
     private static void exampleDoublyLinkedList(LinkedList<String> cities) {
