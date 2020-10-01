@@ -1,10 +1,7 @@
 import data.Album;
 import data.Song;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.ListIterator;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class MusicPlayer {
@@ -28,8 +25,6 @@ public class MusicPlayer {
      *
      *      ***** Bug: Fix back and forward so they don't try to play a song when there's no more songs at the end of the playlist.
      *      ***** Features:
-     *              Check song is in an album before adding.
-     *              Add and remove songs to playlist
      *              Shuffle songs
      *              Play random songs
      * */
@@ -40,22 +35,18 @@ public class MusicPlayer {
     static final String PREVIOUS = "PREVIOUS";
     Song play;
     int playIndex=0;
+    List<Album> albums;
     ListIterator<Song> iterator;
 
     public void run() {
 
         ui = new Scanner(System.in);
-
         playList = new LinkedList<>();
-        Song[] songs = new Song []{
-                Song.newSong("love", "Feelings", "New Sound",4.5),
-                Song.newSong("hate", "Feelings", "New Sound",4),
-                Song.newSong("jealousy", "Feelings", "New Sound",3.5),
-                Song.newSong("sadness", "Feelings", "New Sound",5),
-                Song.newSong("joy","Feelings", "New Sound",6),
-                Song.newSong("disappointment", "Feelings", "New Sound",3)};
-        Album album = Album.newAlbum("Feelings", "New Sound",songs );
-        playList.addAll(album.getSongs());
+        albums = library();
+        for (int i=0; i<albums.size();i++){
+            playList.addAll(albums.get(i).getSongs());
+        }
+
         iterator = playList.listIterator();
 
         boolean run = true;
@@ -79,9 +70,18 @@ public class MusicPlayer {
                     next();
                     break;
                 case 5:
-                    showSongs();
+                    showSongsInPlaylist();
                     break;
                 case 6:
+                    showSongsInLibrary();
+                    break;
+                case 7:
+                    addSong();
+                    break;
+                case 8:
+                    removeSong();
+                    break;
+                case 9:
                     quit();
                     run=false;
                     break;
@@ -93,15 +93,118 @@ public class MusicPlayer {
         }
     }
 
+    private void removeSong() {
+        System.out.println("Which song do you want to remove from the playlist?");
+        String songName = ui.nextLine();
+        for (Song song : playList) {
+            if (songName.equalsIgnoreCase(song.getName())) {
+                playList.remove(song);
+                System.out.println(songName+" removed from playlist.");
+                return;
+            }
+        }
+        System.out.println(songName+" is not in the playlist");
+    }
+
+    private void addSong() {
+        System.out.println("Which song do you want to add from your library?");
+        String songName=ui.nextLine();
+        Song song = songFromLibrary(songName);
+        if(song!=null && !songInPlayList(songName)){
+            playList.add(song);
+        }
+        else{
+            System.out.println("Song not in your library.");
+        }
+    }
+
+    private void showSongsInLibrary() {
+        if(albums.size()==0){
+            System.out.println("There is no music in your library.");
+        }
+        else {
+            System.out.println("Songs in your library are:");
+            for (Album album : albums) {
+                printSongs(album.getSongs());
+            }
+        }
+    }
+    private boolean songInPlayList(String songName) {
+        if(playList.size()==0){
+            System.out.println("There are no songs in this playlist.");
+        }
+        else{
+            for (Song song: playList){
+                if(song.getName().equalsIgnoreCase(songName)){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private Song songFromLibrary(String songName) {
+        if(albums.size()==0){
+            System.out.println("There are no songs in your library.");
+        }
+        else{
+        for(Album album:albums){
+            for (Song song:album.getSongs()){
+                if(songName.equalsIgnoreCase(song.getName())){
+                    return song;
+                }
+            }
+
+        }
+        }
+        return null;
+    }
+
+    private List<Album> library() {
+        ArrayList<Album> library = new ArrayList<>();
+
+        Song[] feelingsSongs = new Song []{
+                Song.newSong("love", "Feelings", "New Sound",4.5),
+                Song.newSong("hate", "Feelings", "New Sound",4),
+                Song.newSong("jealousy", "Feelings", "New Sound",3.5),
+                Song.newSong("sadness", "Feelings", "New Sound",5),
+                Song.newSong("joy","Feelings", "New Sound",6),
+                Song.newSong("disappointment", "Feelings", "New Sound",3)};
+        Album feelings = Album.newAlbum("Feelings", "New Sound",feelingsSongs );
+
+        Song[] jesusSongs = new Song []{
+                Song.newSong("saviour", "Saviour King", "David", 2.5),
+                Song.newSong("protector", "Saviour  King", "David", 3),
+                Song.newSong("I know your name", "Saviour King", "David", 5),
+                Song.newSong("Those who know your name", "Saviour King", "David", 4)
+        };
+        Album saviourKing = Album.newAlbum("Saviour King", "David", jesusSongs);
+
+        library.add(saviourKing);
+        library.add(feelings);
+
+        return library;
+    }
+
     private void quit() {
         System.out.println("exiting..");
         //exit the player
     }
 
-    private void showSongs() {
-        System.out.println("Songs in the playlist are:"+playList.toString());
-        for (int i=0;i<playList.size();i++){
-            Song song = playList.get(i);
+    private void showSongsInPlaylist() {
+        if(playList.size()==0){
+            System.out.println("There are no songs in this playlist.");
+        }
+        else{
+            System.out.println("Songs in the playlist are:");
+            printSongs(playList);
+        }
+
+    }
+
+    private void printSongs(List<Song> list) {
+        for (Song song:list){
             System.out.println(song.getName()+ " by  "+song.getSinger()+" from the album "+song.getAlbum());
         }
     }
@@ -173,12 +276,15 @@ public class MusicPlayer {
     }
 
     private void printMenu() {
-        System.out.println("0-Print Menu\n" +
-                "1-Play\n" +
-                "2-Replay\n" +
-                "3-Back\n" +
-                "4-Next\n" +
-                "5-Show songs in the album\n" +
-                "6-Quit");
+        System.out.println("Actions Available:" +
+                "===================================" +
+                "0-Print Menu\n" +
+                "1-Play, 2-Replay, 3-Back, 4-Next\n" +
+                "5-Show songs in the playlist\n" +
+                "6-Show songs in entire library\n" +
+                "7-Add Song To Playlist\n" +
+                "8-Remove Song From Playlist\n" +
+                "9-Quit\n" +
+                "==================================");
     }
 }

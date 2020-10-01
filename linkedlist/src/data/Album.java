@@ -20,14 +20,14 @@ public class Album {
     }
 
     public Song song(String name) {
-        Song song = null;
-        for (int i = 0; i < songs.size(); i++) {
-            song = songs.get(i);
+
+        for (Song song:songs) {
             if (song.getName().equalsIgnoreCase(name)) {
                 return song;
             }
         }
-        return song;
+        System.out.println(name+" not in album"+getName());
+        return null;
     }
 
     public String getName() {
