@@ -22,9 +22,7 @@ public class MusicPlayer {
      *      started tracking the direction we were going.
      *      As an optional extra, provide an option to remove the current song from the playlist
      *      (hint: listiterator.remove()
-     *
-     *      ***** Bug: Fix back and forward so they don't try to play a song when there's no more songs at the end of the playlist.
-     *      ***** Features:
+     *      ***** Features for future versions:
      *              Shuffle songs
      *              Play random songs
      * */
@@ -37,14 +35,15 @@ public class MusicPlayer {
     int playIndex=0;
     List<Album> albums;
     ListIterator<Song> iterator;
+    private boolean forward;
 
     public void run() {
 
         ui = new Scanner(System.in);
         playList = new LinkedList<>();
         albums = library();
-        for (int i=0; i<albums.size();i++){
-            playList.addAll(albums.get(i).getSongs());
+        for (Album album:albums){
+            playList.addAll(album.getSongs());
         }
 
         iterator = playList.listIterator();
@@ -110,8 +109,14 @@ public class MusicPlayer {
         System.out.println("Which song do you want to add from your library?");
         String songName=ui.nextLine();
         Song song = songFromLibrary(songName);
-        if(song!=null && !songInPlayList(songName)){
-            playList.add(song);
+        if(song!=null){
+            if(!songInPlayList(songName)){
+                playList.add(song);
+            }
+            else {
+                System.out.println(songName+" is in your playlist already.");
+            }
+
         }
         else{
             System.out.println("Song not in your library.");
@@ -205,7 +210,7 @@ public class MusicPlayer {
 
     private void printSongs(List<Song> list) {
         for (Song song:list){
-            System.out.println(song.getName()+ " by  "+song.getSinger()+" from the album "+song.getAlbum());
+            System.out.println(song.toString());
         }
     }
 
@@ -237,13 +242,40 @@ public class MusicPlayer {
         }
         else{
 
-            if(request.equalsIgnoreCase(NEXT)){
-                play=iterator.next();
-                    System.out.println("Playing.."+play.getName());
+            if(request.equalsIgnoreCase(NEXT)) {
+                if(!forward){
+                    if(iterator.hasNext()) {
+                        iterator.next();
+                    }
+                        forward=true;
+                    }
+                
+                if (iterator.hasNext()) {
+                    play = iterator.next();
+                    System.out.println("Playing.." + play.getName());
                 }
+                else{
+                    System.out.println("You've reached the end of the playlist.");
+                    forward = false;
+                }
+            }
                 else if(request.equalsIgnoreCase(PREVIOUS)){
-                    play=iterator.previous();
-                    System.out.println("Playing.."+play.getName());
+                    if(forward){
+                        if(iterator.hasPrevious()){
+                            iterator.previous();
+                        }
+                        forward=false;
+                    }
+                    if(iterator.hasPrevious()){
+                        play=iterator.previous();
+                        System.out.println("Playing.."+play.getName());
+                    }
+                    else{
+                        System.out.println("You are at the start of the playlist.");
+                        forward=true;
+                    }
+
+
                 }
         }
 
@@ -276,8 +308,8 @@ public class MusicPlayer {
     }
 
     private void printMenu() {
-        System.out.println("Actions Available:" +
-                "===================================" +
+        System.out.println("Actions Available:\n" +
+                "===================================\n" +
                 "0-Print Menu\n" +
                 "1-Play, 2-Replay, 3-Back, 4-Next\n" +
                 "5-Show songs in the playlist\n" +

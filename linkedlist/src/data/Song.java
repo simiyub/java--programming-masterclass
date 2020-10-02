@@ -31,4 +31,9 @@ public class Song {
     public String getSinger() {
         return singer;
     }
+
+    @Override
+    public String toString() {
+        return getName()+" by "+getSinger()+" from the album "+getAlbum();
+    }
 }
