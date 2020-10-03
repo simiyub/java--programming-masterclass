@@ -21,6 +21,8 @@
       <module fileurl="file://$PROJECT_DIR$/ShowString/ShowString.iml" filepath="$PROJECT_DIR$/ShowString/ShowString.iml" />
       <module fileurl="file://$PROJECT_DIR$/arrays/arrays.iml" filepath="$PROJECT_DIR$/arrays/arrays.iml" />
       <module fileurl="file://$PROJECT_DIR$/autoboxing-unboxing/autoboxing-unboxing.iml" filepath="$PROJECT_DIR$/autoboxing-unboxing/autoboxing-unboxing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/inner-classes/inner-classes.iml" filepath="$PROJECT_DIR$/inner-classes/inner-classes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/interfaces/interfaces.iml" filepath="$PROJECT_DIR$/interfaces/interfaces.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-programming-masterclass.iml" filepath="$PROJECT_DIR$/.idea/java-programming-masterclass.iml" />
       <module fileurl="file://$PROJECT_DIR$/linkedlist/linkedlist.iml" filepath="$PROJECT_DIR$/linkedlist/linkedlist.iml" />
       <module fileurl="file://$PROJECT_DIR$/lists/lists.iml" filepath="$PROJECT_DIR$/lists/lists.iml" />

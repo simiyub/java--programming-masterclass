@@ -27,7 +27,7 @@ public class MusicPlayer {
      *              Play random songs
      * */
 
-    LinkedList<Song> playList;
+    List<Song> playList;
     Scanner ui;
     static final String NEXT = "NEXT";
     static final String PREVIOUS = "PREVIOUS";
@@ -167,7 +167,7 @@ public class MusicPlayer {
     }
 
     private List<Album> library() {
-        ArrayList<Album> library = new ArrayList<>();
+        List<Album> library = new ArrayList<>();
 
         Song[] feelingsSongs = new Song []{
                 Song.newSong("love", "Feelings", "New Sound",4.5),
