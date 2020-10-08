@@ -19,6 +19,7 @@
       <module fileurl="file://$PROJECT_DIR$/Polymorphism/Polymorphism.iml" filepath="$PROJECT_DIR$/Polymorphism/Polymorphism.iml" />
       <module fileurl="file://$PROJECT_DIR$/ReadingUserInput/ReadingUserInput.iml" filepath="$PROJECT_DIR$/ReadingUserInput/ReadingUserInput.iml" />
       <module fileurl="file://$PROJECT_DIR$/ShowString/ShowString.iml" filepath="$PROJECT_DIR$/ShowString/ShowString.iml" />
+      <module fileurl="file://$PROJECT_DIR$/abstract-classes/abstract-classes.iml" filepath="$PROJECT_DIR$/abstract-classes/abstract-classes.iml" />
       <module fileurl="file://$PROJECT_DIR$/arrays/arrays.iml" filepath="$PROJECT_DIR$/arrays/arrays.iml" />
       <module fileurl="file://$PROJECT_DIR$/autoboxing-unboxing/autoboxing-unboxing.iml" filepath="$PROJECT_DIR$/autoboxing-unboxing/autoboxing-unboxing.iml" />
       <module fileurl="file://$PROJECT_DIR$/inner-classes/inner-classes.iml" filepath="$PROJECT_DIR$/inner-classes/inner-classes.iml" />
