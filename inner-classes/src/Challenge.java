@@ -1,3 +1,4 @@
+import data.PlayListManager;
 
 /***
  *     // Modify the playlist challenge so that the Album class uses an inner class.
@@ -8,4 +9,11 @@
  *     // Neither the Song class or the Main class should be changed.
  * **/
 public class Challenge {
+
+    public static void main(String[] args) {
+
+
+      PlayListManager playlist = new PlayListManager();
+      playlist.run();
+}
 }
