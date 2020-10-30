@@ -7,8 +7,8 @@ public class League <T extends Team> {
     private final String sport;
     private final int yearEstablished;
     private final int numberOfTeams;
-    private final List<FootballTeam> teams;
-    private final List<FootballPlayer> standing;
+    private final List<T> teams;
+    private final List<T> standing;
 
     public League(String name, String sport, int yearEstablished, int numberOfTeams) {
         this.name=name;
@@ -35,7 +35,7 @@ public class League <T extends Team> {
         return numberOfTeams;
     }
 
-    public void addTeam(FootballTeam footballTeam) {
+    public void addTeam(T footballTeam) {
         this.teams.add(footballTeam);
     }
 
@@ -47,15 +47,15 @@ public class League <T extends Team> {
     public void standing() {
         System.out.println("As it stands..");
         System.out.println("Team   Played Won Lost Drawn Goals Points");
-        for(FootballTeam team:this.teams){
+        for(T team:this.teams){
             System.out.println(team.getName()+"   "+team.getPlayed()+"     "+team.getWon()+"   "+team.getLost()+"     "+team.getTied()+"     "+team.getScore()+"      "+team.getPoints());
         }
     }
 
-    public void recordMatchResults(Team homeTeam, Team awayTeam, int homeTeamScore, int awayTeamScore) {
+    public void recordMatchResults(T homeTeam, T awayTeam, int homeTeamScore, int awayTeamScore) {
         //update points of both teams.
-        FootballTeam updatedHomeTeam = this.teams.remove(this.teams.indexOf(homeTeam));
-        FootballTeam updatedAwayTeam = this.teams.remove(this.teams.indexOf(awayTeam));
+        T updatedHomeTeam = this.teams.remove(this.teams.indexOf(homeTeam));
+        T updatedAwayTeam = this.teams.remove(this.teams.indexOf(awayTeam));
 
         if(updatedHomeTeam!=null && updatedAwayTeam!=null){
             if(homeTeamScore>awayTeamScore) {
