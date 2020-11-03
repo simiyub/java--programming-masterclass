@@ -1,3 +1,4 @@
+import data.*;
 
 /***
  *
@@ -22,6 +23,7 @@
  *  alphabetically). Duplicate values are not added.
  *
  *  Note that you are creating your own LinkedList class here, not using the built-in Java one..
+
  *
  *  The rules for adding an item to the linked list are:
  *   If the head of the list is null, make the head refer to the item to be added.
@@ -63,4 +65,19 @@
  * */
 
 public class Challenge {
+    public static void main(String[] args) {
+        Item car1 = Item.newItem("Car","car seller 1",500.0, "2020-10-30");
+        Sale sale1 = Sale.newSale("2020-10-30", car1, "car buyer", 1000.0);
+        Item car2 = Item.newItem("Car","car seller 2",5005.0, "2020-10-30");
+        Sale sale2 = Sale.newSale("2020-10-30", car2, "car buyer", 10000.0);
+        Item car3 = Item.newItem("Car","car seller 3",200.0, "2020-10-30");
+        Sale sale3 = Sale.newSale("2020-10-30", car3, "car buyer", 100.0);
+        Sales sales = new Sales();
+        sales.add(sale1);
+        sales.add(sale1);
+        sales.add(sale2);
+        sales.add(sale3);
+        sales.print();
+    }
+
 }
