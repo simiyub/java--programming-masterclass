@@ -1,8 +1,9 @@
+import data.Calculator;
 import data.awtsample.MyWindow;
 
 public class Main {
     public static void main(String[] args) {
-        example();
+       // example();
         challenge();
     }
 
@@ -37,5 +38,11 @@ public class Main {
          *         // three methods in the main() method of your new project.
          *
          * */
+        int sum = Calculator.nSum(10);
+        System.out.println(sum);
+        int factorial = Calculator.factorial(1);
+        System.out.println(factorial);
+        int fibonacci = Calculator.fibonacci(0);
+
     }
 }
