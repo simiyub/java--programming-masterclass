@@ -1,10 +1,12 @@
 import data.Calculator;
+import data.X;
 import data.awtsample.MyWindow;
 
 public class Main {
     public static void main(String[] args) {
        // example();
         challenge();
+        X.x();
     }
 
     private static void example() {
