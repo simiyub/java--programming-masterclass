@@ -21,7 +21,7 @@ public class Main {
         password.letMeIn(674312);
 
         Password extendedPassword = new ExtendedPassword(pw);
-        //Making the storePassword final protects it from being overriden
+        //Making the storePassword final protects it from being overriden.
         extendedPassword.storePassword();
         extendedPassword.letMeIn(1);
         extendedPassword.letMeIn(523266);
@@ -29,5 +29,9 @@ public class Main {
         extendedPassword.letMeIn(0);
         extendedPassword.letMeIn(-1);
         extendedPassword.letMeIn(674312);
+
+        SIBTest testStaticInitBlock = new SIBTest();
+        testStaticInitBlock.someMethod();
+        System.out.println("Owner is"+SIBTest.owner);
     }
 }
