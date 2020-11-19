@@ -2,7 +2,9 @@ import data.Theatre;
 
 /**
  *
- *
+ *https://docs.oracle.com/javase/tutorial/collections/intro/index.html
+ * Declaring collection as an interface such as collection, List, Set etc,
+ * we can change the implementation without breaking our code
  * */
 public class Main {
 

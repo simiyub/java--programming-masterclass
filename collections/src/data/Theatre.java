@@ -1,7 +1,6 @@
 package data;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Theatre {
     private final String theatreName;
@@ -28,17 +27,63 @@ public class Theatre {
     }
 
     public boolean reserveSeat(String seatNumber){
+        Seat requestedSeat = new Seat(seatNumber);
+        int index = Collections.binarySearch(seats,requestedSeat,null);
 
-        for (Seat seat:seats){
-            if(seat.getSeatNumber().equals(seatNumber) && !seat.isReserved()){
-                processPayment();
-                return seat.reserve();
-            }
+        //This is the function called when we call Collections.binarySearch
+        //int index = indexedBinarySearch(seats,requestedSeat);
+
+        if(index >=0){
+            return seats.get(index).reserve();
         }
+
+
+
+        //With Collections.binarySearch we can replace this for loop and is more efficient
+//        for (Seat seat:seats){
+//            count+=1;
+//            if(seat.getSeatNumber().equals(seatNumber) && !seat.isReserved()){
+//                processPayment();
+//                System.out.println(count+" loops");
+//                return seat.reserve();
+//            }
+//        }
         System.out.println("Seat not available.");
         return false;
 
     }
+
+    /***
+     * Copied over from Java source to demo loop count
+     * */
+
+    private static <T>
+    int indexedBinarySearch(List<? extends Comparable<? super T>> list, T key) {
+        int low = 0;
+        int high = list.size()-1;
+        int count = 0;
+
+        while (low <= high) {
+            int mid = (low + high) >>> 1;
+            Comparable<? super T> midVal = list.get(mid);
+            int cmp = midVal.compareTo(key);
+            count ++;
+
+            if (cmp < 0) {
+                low = mid + 1;
+            }
+            else if (cmp > 0) {
+                high = mid - 1;
+            }
+            else {
+                System.out.println(count+" iterations.");
+                return mid; // key found
+            }
+        }
+        System.out.println(count+" iterations.");
+        return -(low + 1);  // key not found
+    }
+
 
     private void processPayment() {
         System.out.println("Please pay");
@@ -50,7 +95,7 @@ public class Theatre {
         }
     }
 
-    private class Seat {
+    private class Seat implements Comparable<Seat>{
         private final String seatNumber;
         private boolean reserved=false;
 
@@ -89,6 +134,11 @@ public class Theatre {
         @Override
         public String toString() {
             return this.getSeatNumber();
+        }
+
+        @Override
+        public int compareTo(Seat seat) {
+            return this.seatNumber.compareToIgnoreCase(seat.getSeatNumber());
         }
     }
 }
