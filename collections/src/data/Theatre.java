@@ -90,12 +90,16 @@ public class Theatre {
     }
 
     public void showSeats(){
-        for(Seat seat: seats){
-            System.out.println(seat.toString());
+        List<Seat> available  = new ArrayList<>();
+        for(Seat seat:seats){
+            if (!seat.isReserved()){
+                available.add(seat);
+            }
         }
+            System.out.println("Available Theatre seats:"+available.toString());
     }
 
-    private class Seat implements Comparable<Seat>{
+    public class Seat implements Comparable<Seat>{
         private final String seatNumber;
         private boolean reserved=false;
 
