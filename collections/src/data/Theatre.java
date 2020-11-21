@@ -12,7 +12,10 @@ public class Theatre {
         seats = new ArrayList<>();
         for(char row='A'; row<=lastRow;row++){
             for(int seatNum=1; seatNum<=seatsPerRow;seatNum++){
-                seats.add(new Seat(row+String.format("%02d", seatNum)));
+                boolean bestView = (row<'D' && (seatNum >=4 && seatNum<=9));
+                boolean restrictedView = (row > 'F' || (seatNum<4 || seatNum>9));
+                double price = bestView ? 14 : restrictedView ? 7 : 12;
+                seats.add(new Seat(row+String.format("%02d", seatNum), price));
             }
         }
 
@@ -22,12 +25,12 @@ public class Theatre {
         return theatreName;
     }
 
-    public List<Seat> getSeats() {
+    public Collection <Seat> getSeats() {
         return seats;
     }
 
     public boolean reserveSeat(String seatNumber){
-        Seat requestedSeat = new Seat(seatNumber);
+        Seat requestedSeat = new Seat(seatNumber, 0);
         int index = Collections.binarySearch(seats,requestedSeat,null);
 
         //This is the function called when we call Collections.binarySearch
@@ -97,52 +100,5 @@ public class Theatre {
             }
         }
             System.out.println("Available Theatre seats:"+available.toString());
-    }
-
-    public class Seat implements Comparable<Seat>{
-        private final String seatNumber;
-        private boolean reserved=false;
-
-        public Seat(String seatNumber) {
-            this.seatNumber = seatNumber;
-        }
-
-        public boolean reserve() {
-            if(this.isReserved()) {
-                System.out.println("Seat already reserved.");
-                return false;
-            }
-            this.reserved = true;
-            System.out.println("seat "+seatNumber+ " reserved");
-            return isReserved();
-        }
-
-        public String getSeatNumber() {
-            return seatNumber;
-        }
-
-        public boolean isReserved() {
-            return reserved;
-        }
-
-        public boolean cancel(){
-            if(!reserved){
-                System.out.println("Did not cancel as seat is not reserved");
-                return false;
-            }
-            this.reserved=false;
-            System.out.println("reservation cancelled");
-            return isReserved();
-        }
-
-        @Override
-        public String toString() {
-            return this.getSeatNumber();
-        }
-
-        @Override
-        public int compareTo(Seat seat) {
-            return this.seatNumber.compareToIgnoreCase(seat.getSeatNumber());
-        }
     }
 }
